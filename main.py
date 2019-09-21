@@ -31,7 +31,7 @@ def read(file_path, n):
 
 
 def main():
-    data, labels = read("data/Homework2_pca_a.txt",5)
+    data, labels = read("Homework2_pca_a.txt",5)
     data = data.astype(np.float)
     
     my_pca_res = mypca.pca(data)
