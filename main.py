@@ -31,14 +31,18 @@ def read(file_path, n):
 
 
 def main():
-    data, labels = read("Homework2_pca_a.txt",5)
+    # change include read number of columns
+    data, labels = read("Homework2_pca_b.txt", 17)
     data = data.astype(np.float)
     
-    my_pca_res = mypca.pca(data)
+    #my_pca_res = mypca.pca(data)
     sklearn_pca_res = skap.apply_pca(data)
-    
-    vs.visualization(my_pca_res,labels)
-    vs.visualization(sklearn_pca_res,labels)
+    sklearn_svd_res = skap.apply_svd(data)
+    sklearn_svd_tsne = skap.apply_tsne(data)
+
+    #
+    # vs.visualization(my_pca_res,labels)
+    # vs.visualization(sklearn_pca_res,labels)
 
 if __name__ == "__main__":
     main()

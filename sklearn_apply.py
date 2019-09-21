@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 from sklearn.decomposition import pca
-#from sklearn.decomposition import TSNE, TruncatedSVD
+from sklearn.decomposition import TruncatedSVD
+from sklearn.manifold import TSNE
 
 def apply_pca(data):
     K=2
@@ -10,11 +11,16 @@ def apply_pca(data):
     return data_new
 
 def apply_svd(data):
-    #to do
     #use sklearn svd
-    return data
+    k = 2
+    #get components
+    #components = TruncatedSVD(k).fit(data).components_
+    return TruncatedSVD(k).fit_transform(data)
+
     
 def apply_tsne(data):
-    #to do
     #use sklearn svd
-    return data
+    k = 2
+    # get embeddings
+    #embeddings = TSNE(k).fit(data).embedding_
+    return TSNE(k).fit_transform(data)
