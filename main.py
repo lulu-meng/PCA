@@ -27,13 +27,13 @@ def read(file_path, n):
 
 def main():
     # change include read number of columns
-    data, labels = read("Homework2_pca_b.txt", 17)
+    data, labels = read("Homework2_pca_a.txt", 5)
     data = data.astype(np.float)
     
     #my_pca_res = mypca.pca(data)
     sklearn_pca_res = skap.apply_pca(data)
     sklearn_svd_res = skap.apply_svd(data)
-    sklearn_svd_tsne = skap.apply_tsne(data)
+    sklearn_tsne_res = skap.apply_tsne(data)
 
     #
     # vs.visualization(my_pca_res,labels)

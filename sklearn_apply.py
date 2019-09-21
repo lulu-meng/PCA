@@ -21,6 +21,6 @@ def apply_svd(data):
 def apply_tsne(data):
     #use sklearn svd
     k = 2
-    # get embeddings
+    #get embeddings
     #embeddings = TSNE(k).fit(data).embedding_
     return TSNE(k).fit_transform(data)
