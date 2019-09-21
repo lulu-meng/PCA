@@ -10,24 +10,19 @@ def read(file_path, n):
     file = open(file_path, "r")
     content = file.readlines()
     file.close()
-    
-    x = []
-    y = []
+    data = []
+    labels = []
     rows = len(content)
     for line in content:
         line_list = re.split(r'\t+', line.rstrip('\n'))
-        x.append(line_list[0:n-1])
-        y.append(line_list[n-1])
+        data.append(line_list[0:n-1])
+        labels.append(line_list[n-1])
         
-    datamat=np.zeros((rows,n-1))#初始化矩阵
+    datamat=np.zeros((rows,n-1))
     for i in range(rows):
-        datamat[i,:] = x[i][:]
-        
-    print("x:",x)
-    print("y:",y)
-    print("mat:",datamat)
-
-    return datamat,y
+        datamat[i,:] = data[i][:]
+      
+    return datamat,labels
 
 
 def main():
