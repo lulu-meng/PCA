@@ -30,14 +30,15 @@ def main():
     data, labels = read("Homework2_pca_a.txt", 5)
     data = data.astype(np.float)
     
-    #my_pca_res = mypca.pca(data)
+    my_pca_res = mypca.pca(data)
     sklearn_pca_res = skap.apply_pca(data)
     sklearn_svd_res = skap.apply_svd(data)
     sklearn_tsne_res = skap.apply_tsne(data)
 
-    #
-    # vs.visualization(my_pca_res,labels)
-    # vs.visualization(sklearn_pca_res,labels)
+    vs.visualization(my_pca_res,labels,'my_pca','PC')
+    vs.visualization(sklearn_pca_res,labels,'sklearn_pca','PC')
+    vs.visualization(sklearn_svd_res,labels,'sklearn_svd','SV')
+    vs.visualization(sklearn_tsne_res,labels,'sklearn_tsne','tSNE')
 
 if __name__ == "__main__":
     main()
