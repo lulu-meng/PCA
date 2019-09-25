@@ -7,6 +7,7 @@ def sort_key(x):
     return x[0]
 
 def pca(data):
+    data = data.astype(np.float)
     components = 2
     rows, cols = data.shape
     #substract the mean

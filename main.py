@@ -5,6 +5,8 @@ import numpy as np
 import visualization as vs
 import sklearn_apply as skap
 import pca as mypca
+import matplotlib.pyplot as plt
+import pandas as pd
 
 def read(file_path, n):
     file = open(file_path, "r")
@@ -17,23 +19,21 @@ def read(file_path, n):
         line_list = re.split(r'\t+', line.rstrip('\n'))
         data.append(line_list[0:n-1])
         labels.append(line_list[n-1])
-        
-    datamat=np.zeros((rows,n-1))
-    for i in range(rows):
-        datamat[i,:] = data[i][:]
-      
-    return datamat,labels
+
+    data = np.asarray(data)
+    return data, labels
 
 
 def main():
     # change include read number of columns
-    data, labels = read("Homework2_pca_a.txt", 5)
-    data = data.astype(np.float)
-    
+    data, labels = read("Homework2_pca_c.txt", 12)
+    # data = data.astype(np.float)
+
     my_pca_res = mypca.pca(data)
     sklearn_pca_res = skap.apply_pca(data)
     sklearn_svd_res = skap.apply_svd(data)
     sklearn_tsne_res = skap.apply_tsne(data)
+
 
     vs.visualization(my_pca_res,labels,'my_pca','PC')
     vs.visualization(sklearn_pca_res,labels,'sklearn_pca','PC')
