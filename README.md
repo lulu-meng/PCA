@@ -1,2 +1,1 @@
-# PCA
-python implementation of Principle Components Analysis
+Our code for this homework includes the following files: main.py, pca.py, sklearn_apply.py, and visualization.py. User can find inside main.py under the main function the commands to run our self implemented PCA, Sklearn PCA, Sklearn SVD, and Sklearn TSNE. The way to run our code is, under main function, user can find our read function that takes dataset file path and the total number of columns(including the labels) inside the dataset files. Next, there are already functions in the main function that calls for our own PCA algorithm written in pca.py, and the other three written in sklearn_apply.py. Finally, the data results will be visualized through functions written in visualization.py. 
